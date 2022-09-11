@@ -32,6 +32,7 @@ class NewsViewModel(val repository: NewsRepository, saveDataToDBUseCase: SaveDat
 
     fun refresh() {
         viewModelScope.launch {
+            _state.emit(NewsState.Loading)
             repository.getRemoteNews()
         }
     }

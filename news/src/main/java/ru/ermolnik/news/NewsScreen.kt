@@ -16,7 +16,7 @@ fun NewsScreen(viewModel: NewsViewModel) {
     val state = viewModel.state.collectAsState()
     Spacer(modifier = Modifier.padding(24.dp))
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when (val stateValue =  state.value) {
             is NewsState.Loading -> {
                 CircularProgressIndicator(

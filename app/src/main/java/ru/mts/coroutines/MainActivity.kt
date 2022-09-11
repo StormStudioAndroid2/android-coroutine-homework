@@ -5,16 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import ru.ermolnik.news.NewsScreen
@@ -22,7 +18,6 @@ import ru.ermolnik.news.NewsViewModel
 import ru.mts.coroutines.ui.theme.CoroutinesTheme
 import ru.mts.data.news.db.NewsLocalDataSource
 import ru.mts.data.news.remote.NewsRemoteDataSource
-import ru.mts.data.news.repository.News
 import ru.mts.data.news.repository.NewsRepository
 import ru.mts.data.news.usecase.SaveDataToDBUseCase
 
@@ -54,7 +49,7 @@ class MainActivity : ComponentActivity() {
                             refreshing = false
                         },
                     ) {
-                        LazyColumn (modifier = Modifier.fillMaxSize()) {
+                        LazyColumn (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
                             items(count = 1) {
                                 NewsScreen(viewModel = viewModel)
                             }
